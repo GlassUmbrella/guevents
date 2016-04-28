@@ -1,6 +1,6 @@
 // The MIT License (MIT)
 
-// Copyright (c) 2015 Glass Umbrella. Created by Julijanas Jezov.
+// Copyright (c) 2015 Glass Umbrella.
 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
@@ -33,12 +33,15 @@
             var value = valueAccessor();
             ko.applyBindingsToNode(element, {
                 click: function() {
-                    if (value()) {
-                        $(element).prop("disabled", true);
-                        return value()
+                    $(element).prop("disabled", true);
+                    var returnValue = value();
+                    if (returnValue) {
+                        return returnValue
                         .finally(function() {
                             $(element).prop("disabled", false);
                         });
+                    } else {
+                        $(element).prop("disabled", false);
                     }
                 }
             });
@@ -50,12 +53,15 @@
             var value = valueAccessor();
             ko.applyBindingsToNode(element, {
                 submit: function() {
-                    if (value()) {
-                        $(element).find("input[type=submit]").prop("disabled", true);
-                        return value()
+                    $(element).find("input[type=submit]").prop("disabled", true);
+                    var returnValue = value();
+                    if (returnValue) {
+                        return returnValue
                         .finally(function() {
                             $(element).find("input[type=submit]").prop("disabled", false);
                         });
+                    } else {
+                        $(element).find("input[type=submit]").prop("disabled", false);
                     }
                 }
             });
