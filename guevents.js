@@ -33,11 +33,13 @@
             var value = valueAccessor();
             ko.applyBindingsToNode(element, {
                 click: function() {
-                    $(element).prop("disabled", true);
-                    return value()
-                    .finally(function() {
-                        $(element).prop("disabled", false);
-                    });
+                    if (value()) {
+                        $(element).prop("disabled", true);
+                        return value()
+                        .finally(function() {
+                            $(element).prop("disabled", false);
+                        });
+                    }
                 }
             });
         }
@@ -48,11 +50,13 @@
             var value = valueAccessor();
             ko.applyBindingsToNode(element, {
                 submit: function() {
-                    $(element).find("input[type=submit]").prop("disabled", true);
-                    return value()
-                    .finally(function() {
-                        $(element).find("input[type=submit]").prop("disabled", false);
-                    });
+                    if (value()) {
+                        $(element).find("input[type=submit]").prop("disabled", true);
+                        return value()
+                        .finally(function() {
+                            $(element).find("input[type=submit]").prop("disabled", false);
+                        });
+                    }
                 }
             });
         }
