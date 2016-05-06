@@ -6,4 +6,4 @@ Swap knockout `click` and `submit` binding handlers for `guclick` and `gusubmit`
 
 
 # Install
-`bower install mrvalidate --save`
+`bower install guevents --save`
