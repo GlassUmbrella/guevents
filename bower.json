@@ -1,0 +1,11 @@
+{
+  "name": "guevents",
+  "main": "guevents.js",
+  "homepage": "https://github.com/GlassUmbrella/guevents",
+  "authors": [
+    "Julijanas Jezov",
+    "Eddie Lee"
+  ],
+  "description": "",
+  "license": "MIT"
+}
